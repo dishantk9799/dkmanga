@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Dark mode CSS variables */
+:root {
+  --bg-primary: #4f46e5;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #f3f4f6;
+  --text-tertiary: #d1d5db;
+  --border-color: #374151;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode styles */
+.dark {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --bg-tertiary: #374151;
+  --text-primary: #f3f4f6;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #9ca3af;
+  --border-color: #374151;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Apply dark mode to specific components */
+.dark .dark-mode-card {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark .dark-mode-text {
+  color: var(--text-secondary);
+}
+
+.dark .dark-mode-border {
+  border-color: var(--border-color);
+}
