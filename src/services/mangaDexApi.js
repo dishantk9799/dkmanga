@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Correct BASE_URL for MangaDex v5 API
-const BASE_URL = 'https://api.mangadex.org';
+const BASE_URL = '/api';
 
 // Create axios instance with default config
 const api = axios.create({
