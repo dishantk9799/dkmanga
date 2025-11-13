@@ -5,7 +5,9 @@ import { BookmarkIcon as BookmarkIconSolid } from '@heroicons/react/24/solid';
 
 const MangaCard = ({ manga }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
-
+  // --- ADD THIS DEBUG LOG ---
+  console.log(`MangaCard Render: Title=${manga.title}, CoverSrc=${manga.cover}`);
+  // --- END DEBUG LOG ---
   useEffect(() => {
     // Check if this manga is already bookmarked
     const savedBookmarks = localStorage.getItem('bookmarks');
