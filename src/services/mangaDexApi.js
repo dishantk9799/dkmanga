@@ -203,6 +203,11 @@ const transformMangaData = (manga, detailed = false) => {
   // Get cover art
   const coverArt = relationships.find(rel => rel.type === 'cover_art');
   const coverFileName = coverArt ? coverArt.attributes.fileName : null;
+
+  // --- ADD THIS DEBUG LOG ---
+  console.log(`Manga ID: ${manga.id} -> Cover File Name: ${coverFileName}`);
+  // --- END DEBUG LOG ---
+
   // Updated cover URL to use our rewrite rule
   const coverUrl = coverFileName
     ? `/covers/${manga.id}/${coverFileName}`
@@ -268,6 +273,78 @@ const transformMangaData = (manga, detailed = false) => {
     }
   };
 };
+// const transformMangaData = (manga, detailed = false) => {
+//   const attributes = manga.attributes;
+//   const relationships = manga.relationships || [];
+
+//   // Get cover art
+//   const coverArt = relationships.find(rel => rel.type === 'cover_art');
+//   const coverFileName = coverArt ? coverArt.attributes.fileName : null;
+//   // Updated cover URL to use our rewrite rule
+//   const coverUrl = coverFileName
+//     ? `/covers/${manga.id}/${coverFileName}`
+//     : 'https://via.placeholder.com/300x400?text=No+Cover';
+
+//   // Get author
+//   const author = relationships.find(rel => rel.type === 'author');
+//   const authorName = author ? author.attributes.name : 'Unknown';
+
+//   // Get artist
+//   const artist = relationships.find(rel => rel.type === 'artist');
+//   const artistName = artist ? artist.attributes.name : authorName;
+
+//   // Format view count
+//   const viewCount = attributes.followedCount || 0;
+//   const formattedViews = viewCount > 1000
+//     ? `${(viewCount / 1000).toFixed(1)}K`
+//     : viewCount.toString();
+
+//   // Get description
+//   let description = '';
+//   if (attributes.description && attributes.description.en) {
+//     description = attributes.description.en.length > 150
+//       ? attributes.description.en.substring(0, 150) + '...'
+//       : attributes.description.en;
+//   }
+
+//   // Get status
+//   const status = attributes.status || 'unknown';
+//   const formattedStatus = status.charAt(0).toUpperCase() + status.slice(1);
+
+//   // Get rating (if available)
+//   const rating = attributes.contentRating || 'safe';
+//   const formattedRating = rating.charAt(0).toUpperCase() + rating.slice(1);
+
+//   // Get tags
+//   const tags = attributes.tags || [];
+//   const genres = tags.map(tag => tag.attributes.name.en).slice(0, 3);
+
+//   // Get last chapter
+//   const lastChapter = relationships.find(rel => rel.type === 'last_chapter');
+//   const lastChapterNum = lastChapter ? lastChapter.attributes.chapter : 'N/A';
+
+//   return {
+//     id: manga.id,
+//     title: attributes.title.en || attributes.title[Object.keys(attributes.title)[0]] || 'Untitled',
+//     description: description,
+//     cover: coverUrl,
+//     author: authorName,
+//     artist: artistName,
+//     status: formattedStatus,
+//     views: formattedViews,
+//     chapter: `Ch. ${lastChapterNum}`,
+//     rating: formattedRating,
+//     genres: genres,
+//     isNew: Math.random() > 0.7, // Randomly mark some as new for demo
+//     ...detailed && {
+//       altTitles: attributes.altTitles || [],
+//       year: attributes.year || 'Unknown',
+//       contentRating: formattedRating,
+//       tags: genres,
+//       lastUpdated: attributes.updatedAt,
+//     }
+//   };
+// };
 
 // Transform chapter data from API to our format
 const transformChapterData = (chapter) => {
