@@ -8,5 +8,16 @@
       "source": "/covers/:path*",
       "destination": "https://uploads.mangadex.org/covers/:path*"
     }
+  ],
+  "headers": [
+    {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, must-revalidate"
+        }
+      ]
+    }
   ]
 }
