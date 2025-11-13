@@ -205,7 +205,7 @@ const transformMangaData = (manga, detailed = false) => {
   const coverFileName = coverArt ? coverArt.attributes.fileName : null;
   // Updated cover URL to use the correct MangaDex domain
   const coverUrl = coverFileName
-    ? `/api/covers/${manga.id}/${coverFileName}`
+    ? `/uploads/covers/${manga.id}/${coverFileName}`
     : 'https://via.placeholder.com/300x400?text=No+Cover';
 
   // Get author
