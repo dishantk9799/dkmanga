@@ -9,7 +9,7 @@ import {
   ClockIcon
 } from '@heroicons/react/24/outline';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import { getMangaDetails, getMangaChapters } from '../../services/mangaDexApi';
+import { getMangaDetails, getMangaChapters,getLatestManga } from '../../services/mangaDexApi';
 
 const MangaPage = () => {
   const { id } = useParams();

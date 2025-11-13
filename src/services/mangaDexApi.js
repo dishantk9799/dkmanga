@@ -203,9 +203,9 @@ const transformMangaData = (manga, detailed = false) => {
   // Get cover art
   const coverArt = relationships.find(rel => rel.type === 'cover_art');
   const coverFileName = coverArt ? coverArt.attributes.fileName : null;
-  // Updated cover URL to use the correct MangaDex domain
+  // Updated cover URL to use our rewrite rule
   const coverUrl = coverFileName
-    ? `https://uploads.mangadex.org/covers/${manga.id}/${coverFileName}`
+    ? `/covers/${manga.id}/${coverFileName}`
     : 'https://via.placeholder.com/300x400?text=No+Cover';
 
   // Get author
