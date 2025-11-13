@@ -41,7 +41,7 @@ const MangaCard = ({ manga }) => {
       <div className="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
         <div className="aspect-[3/4] overflow-hidden">
           <img
-            src={manga.cover}
+            src={`${manga.cover}?t=${Date.now()}`}
             alt={manga.title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
