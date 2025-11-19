@@ -56,15 +56,19 @@ const ChapterReader = () => {
 
         // Fetch all chapters for this manga to enable navigation
         if (mangaId) {
-          const chaptersResponse = await fetch(`https://api.mangadex.org/manga/${mangaId}/feed?translatedLanguage[]=en&order[chapter]=desc`);
-          const chaptersData = await chaptersResponse.json();
+          try {
+            // Use the API service function which goes through your proxy
+            const chaptersData = await getMangaChapters(mangaId, 500, 0); // Get more chapters to ensure we have all of them
 
-          if (chaptersData.data && chaptersData.data.length > 0) {
-            setChaptersList(chaptersData.data);
+            if (chaptersData && chaptersData.length > 0) {
+              setChaptersList(chaptersData);
 
-            // Find current chapter index
-            const currentIndex = chaptersData.data.findIndex(ch => ch.id === id);
-            setCurrentChapterIndex(currentIndex);
+              // Find current chapter index
+              const currentIndex = chaptersData.findIndex(ch => ch.id === id);
+              setCurrentChapterIndex(currentIndex);
+            }
+          } catch (error) {
+            console.error('Error fetching chapter list:', error);
           }
         }
 
