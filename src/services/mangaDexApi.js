@@ -204,10 +204,6 @@ const transformMangaData = (manga, detailed = false) => {
   const coverArt = relationships.find(rel => rel.type === 'cover_art');
   const coverFileName = coverArt ? coverArt.attributes.fileName : null;
 
-  // --- ADD THIS DEBUG LOG ---
-  console.log(`Manga ID: ${manga.id} -> Cover File Name: ${coverFileName}`);
-  // --- END DEBUG LOG ---
-
   // Updated cover URL to use our rewrite rule
   const coverUrl = coverFileName
     ? `/covers/${manga.id}/${coverFileName}`
