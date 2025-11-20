@@ -206,7 +206,7 @@ const transformMangaData = (manga, detailed = false) => {
 
   // Updated cover URL to use our rewrite rule
   const coverUrl = coverFileName
-    ? `/covers/${manga.id}/${coverFileName}`
+    ? `/api/proxy-cover?path=${encodeURIComponent(`${manga.id}/${coverFileName}`)}`
     : 'https://via.placeholder.com/300x400?text=No+Cover';
 
   // Get author
