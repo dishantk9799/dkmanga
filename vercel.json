@@ -6,8 +6,7 @@
     },
     {
       "source": "/covers/:path*",
-      "destination": "https://uploads.mangadex.org/covers/:path*",
-      "skip": true
+      "destination": "https://uploads.mangadex.org/covers/:path*"
     }
   ],
   "headers": [
@@ -23,7 +22,8 @@
       "source": "/covers/(.*)",
       "headers": [
         { "key": "Referer", "value": "https://mangadex.org/" },
-        { "key": "Origin", "value": "https://mangadex.org" }
+        { "key": "Origin", "value": "https://mangadex.org" },
+        { "key": "Cache-Control", "value": "no-store, must-revalidate" }
       ]
     }
   ]
