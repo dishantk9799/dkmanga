@@ -418,7 +418,7 @@ const ChapterReader = () => {
           ) : (
             <img
               ref={imgRef}
-              src={`${pageUrl}${pages[currentPage]}`}
+              src={`/api/proxy-image?url=${encodeURIComponent(`${pageUrl}${pages[currentPage]}`)}`}
               alt={`Page ${currentPage + 1}`}
               className="max-w-full h-auto mx-auto cursor-pointer"
               style={getImageStyle()}
