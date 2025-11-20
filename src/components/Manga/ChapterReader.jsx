@@ -12,7 +12,7 @@ import {
   MagnifyingGlassMinusIcon
 } from '@heroicons/react/24/outline';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import { getChapterPages } from '../../services/mangaDexApi';
+import { getChapterPages,getMangaChapters } from '../../services/mangaDexApi';
 
 const ChapterReader = () => {
   const { id } = useParams();
